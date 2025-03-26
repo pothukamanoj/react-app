@@ -39,16 +39,16 @@ jobs:
           source: "build"
           target: "/home/ec2-user/react-app"
 
-      - name: SSH into EC2 & Deploy App
-        uses: appleboy/ssh-action@v0.1.10
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ec2-user
-          key: ${{ secrets.EC2_SSH_KEY }}
-          script: |
-            sudo yum install -y nginx
-            sudo systemctl start nginx
-            sudo systemctl enable nginx
-            sudo rm -rf /usr/share/nginx/html/*
-            sudo cp -r /home/ec2-user/react-app/build/* /usr/share/nginx/html/
-            sudo systemctl restart nginx
+      # - name: SSH into EC2 & Deploy App
+      #   uses: appleboy/ssh-action@v0.1.10
+      #   with:
+      #     host: ${{ secrets.EC2_HOST }}
+      #     username: ec2-user
+      #     key: ${{ secrets.EC2_SSH_KEY }}
+      #     script: |
+            # sudo yum install -y nginx
+            # sudo systemctl start nginx
+            # sudo systemctl enable nginx
+            # sudo rm -rf /usr/share/nginx/html/*
+            # sudo cp -r /home/ec2-user/react-app/build/* /usr/share/nginx/html/
+            # sudo systemctl restart nginx
